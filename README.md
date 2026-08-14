@@ -66,6 +66,18 @@ Update engagement details in `src/app/config/invitation.config.ts`. The reusable
 
 Replace image or audio files under `src/assets/engagement`, then update the matching paths in `invitation.config.ts`.
 
+## Changing Themes
+
+Theme presets are configured in `src/app/config/invitation.config.ts` under `theme.presets`.
+Change `theme.activeThemeId` to one of these values, then rebuild:
+
+- `champagneRose`
+- `royalWineGold`
+- `lotusBlush`
+- `mehendiEmerald`
+
+Each preset controls the invitation colors through `primaryColor`, `secondaryColor`, `backgroundColor`, and `accentColor`.
+
 ## WhatsApp link preview
 
 The project includes a share thumbnail at `src/assets/engagement/images/whatsapp-thumbnail.png`.

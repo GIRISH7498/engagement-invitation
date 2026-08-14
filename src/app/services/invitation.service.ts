@@ -9,7 +9,7 @@ import { INVITATION_STAGES, InvitationStageKey } from '../models/invitation-stag
 })
 export class InvitationService {
   getInvitation(): InvitationConfig {
-    return invitationConfig;
+    return this.withSelectedTheme(invitationConfig);
   }
 
   getStages(): InvitationStageKey[] {
@@ -18,5 +18,23 @@ export class InvitationService {
 
   getStageAt(stages: InvitationStageKey[], index: number): InvitationStageKey {
     return stages[Math.max(0, Math.min(index, stages.length - 1))];
+  }
+
+  private withSelectedTheme(config: InvitationConfig): InvitationConfig {
+    const selectedTheme = config.theme.activeThemeId
+      ? config.theme.presets?.[config.theme.activeThemeId]
+      : undefined;
+
+    if (!selectedTheme) {
+      return config;
+    }
+
+    return {
+      ...config,
+      theme: {
+        ...config.theme,
+        ...selectedTheme,
+      },
+    };
   }
 }

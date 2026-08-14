@@ -78,10 +78,43 @@ export const invitationConfig: InvitationConfig = {
     brideFamily: 'Bride Family',
   },
   theme: {
-    primaryColor: '#b76e79',
-    secondaryColor: '#4b1f32',
-    backgroundColor: '#fffaf3',
-    accentColor: '#c8a45d',
+    // Change only this value to switch the complete invitation theme.
+    activeThemeId: 'champagneRose',
+    name: 'Lotus Blush',
+    primaryColor: '#9f6fca',
+    secondaryColor: '#39204d',
+    backgroundColor: '#fbf5ff',
+    accentColor: '#c99b3f',
+    presets: {
+      champagneRose: {
+        name: 'Champagne Rose',
+        primaryColor: '#b76e79',
+        secondaryColor: '#4b1f32',
+        backgroundColor: '#fffaf3',
+        accentColor: '#c8a45d',
+      },
+      royalWineGold: {
+        name: 'Royal Wine & Gold',
+        primaryColor: '#9b2f4c',
+        secondaryColor: '#2e1024',
+        backgroundColor: '#fff5ec',
+        accentColor: '#d9a441',
+      },
+      lotusBlush: {
+        name: 'Lotus Blush',
+        primaryColor: '#9f6fca',
+        secondaryColor: '#39204d',
+        backgroundColor: '#fbf5ff',
+        accentColor: '#c99b3f',
+      },
+      mehendiEmerald: {
+        name: 'Mehendi Emerald',
+        primaryColor: '#2f8f6b',
+        secondaryColor: '#123d31',
+        backgroundColor: '#f4fff8',
+        accentColor: '#d4af37',
+      },
+    },
   },
   music: {
     enabled: false,

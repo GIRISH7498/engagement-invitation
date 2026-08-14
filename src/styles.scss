@@ -3,6 +3,7 @@
   --engagement-primary: #b76e79;
   --engagement-secondary: #4b1f32;
   --engagement-gold: #c8a45d;
+  --engagement-heart-pink: #f25b9c;
   --engagement-text: #4b1f32;
   --engagement-rose: color-mix(in srgb, var(--engagement-primary) 42%, var(--engagement-bg));
   --engagement-blush: color-mix(in srgb, var(--engagement-primary) 14%, var(--engagement-bg));
@@ -114,7 +115,70 @@ a:focus-visible {
     0 0.8rem 1.6rem color-mix(in srgb, var(--engagement-secondary) 18%, transparent);
 }
 
+.falling-heart {
+  position: absolute;
+  top: -2rem;
+  left: var(--fall-left);
+  z-index: 2;
+  display: block;
+  width: var(--fall-size, 0.36rem);
+  aspect-ratio: 1;
+  opacity: 0;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--engagement-heart-pink) 92%, white 8%);
+  filter: drop-shadow(
+    0 0 0.24rem color-mix(in srgb, var(--engagement-heart-pink) 46%, transparent)
+  );
+  transform: rotate(45deg);
+  animation: engagement-falling-heart var(--fall-duration, 16s) linear infinite;
+  animation-delay: var(--fall-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.falling-heart::before,
+.falling-heart::after {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  content: '';
+  border-radius: 50%;
+  background: inherit;
+}
+
+.falling-heart::before {
+  left: -50%;
+}
+
+.falling-heart::after {
+  top: -50%;
+}
+
+@keyframes engagement-falling-heart {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3rem, 0) rotate(45deg) scale(0.82);
+  }
+
+  12% {
+    opacity: 0.62;
+  }
+
+  78% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--fall-drift, 0), calc(100dvh + 5rem), 0)
+      rotate(calc(45deg + var(--fall-rotate, 0deg))) scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .falling-heart {
+    display: none;
+  }
+
   *,
   *::before,
   *::after {

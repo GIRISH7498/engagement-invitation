@@ -12,6 +12,17 @@
   <span class="heart heart-one"></span>
   <span class="heart heart-two"></span>
   <span class="heart heart-three"></span>
+  @for (heart of fallingHearts; track heart.left) {
+    <span
+      class="falling-heart"
+      [style.--fall-left]="heart.left"
+      [style.--fall-size]="heart.size"
+      [style.--fall-duration]="heart.duration"
+      [style.--fall-delay]="heart.delay"
+      [style.--fall-drift]="heart.drift"
+      [style.--fall-rotate]="heart.rotate"
+    ></span>
+  }
   <span class="petal petal-one"></span>
   <span class="petal petal-two"></span>
   <span class="petal petal-three"></span>

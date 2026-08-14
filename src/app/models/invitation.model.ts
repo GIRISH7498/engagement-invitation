@@ -77,11 +77,17 @@ export interface InvitationFamiliesConfig {
   brideFamily: string;
 }
 
-export interface InvitationThemeConfig {
+export interface InvitationThemePaletteConfig {
+  name: string;
   primaryColor: string;
   secondaryColor: string;
   backgroundColor: string;
   accentColor: string;
+}
+
+export interface InvitationThemeConfig extends InvitationThemePaletteConfig {
+  activeThemeId?: string;
+  presets?: Record<string, InvitationThemePaletteConfig>;
 }
 
 export interface InvitationMusicConfig {
