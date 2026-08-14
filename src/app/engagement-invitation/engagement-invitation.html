@@ -1,0 +1,106 @@
+<app-decorative-background [theme]="invitation.theme" />
+<app-music-control [labels]="invitation.labels" />
+
+<main
+  class="invitation-shell"
+  [style.--engagement-primary]="invitation.theme.primaryColor"
+  [style.--engagement-secondary]="invitation.theme.secondaryColor"
+  [style.--engagement-text]="invitation.theme.secondaryColor"
+  [style.--engagement-bg]="invitation.theme.backgroundColor"
+  [style.--engagement-gold]="invitation.theme.accentColor"
+>
+  <section
+    class="stage-shell"
+    [class.is-leaving]="transitionPhase() === 'leaving'"
+    [class.is-entering]="transitionPhase() === 'entering'"
+    [class.is-forward]="transitionDirection() === 'forward'"
+    [class.is-backward]="transitionDirection() === 'backward'"
+    [class.is-story]="isStoryStage()"
+    [class.is-transitioning]="isTransitioning()"
+    [attr.aria-busy]="isTransitioning()"
+    [attr.data-stage]="currentStage()"
+    [attr.aria-live]="isStoryStage() ? null : 'polite'"
+  >
+    <div class="stage-frame">
+      @switch (currentStage()) {
+        @case ('cover') {
+          <app-invitation-cover
+            [couple]="invitation.couple"
+            [messages]="invitation.messages"
+            [labels]="invitation.labels"
+            (openRequested)="startMusic()"
+            (openInvitation)="goNext()"
+          />
+        }
+        @case ('coupleReveal') {
+          <app-couple-reveal
+            [couple]="invitation.couple"
+            [messages]="invitation.messages"
+            [labels]="invitation.labels"
+            (viewInvitation)="goNext()"
+          />
+        }
+        @case ('invitationStory') {
+          <div
+            class="story-scroll"
+            role="region"
+            [attr.aria-label]="invitation.labels.storyRegionAriaLabel"
+          >
+            <section class="story-section">
+              <app-event-details
+                [couple]="invitation.couple"
+                [event]="invitation.event"
+                [families]="invitation.families"
+                [messages]="invitation.messages"
+                [labels]="invitation.labels"
+                [showVenueDetails]="false"
+                [showFamilies]="false"
+                [showAction]="false"
+              />
+            </section>
+
+            @if (invitation.features.showCountdown) {
+              <section class="story-section">
+                <app-countdown
+                  [event]="invitation.event"
+                  [messages]="invitation.messages"
+                  [labels]="invitation.labels"
+                />
+              </section>
+            }
+
+            @if (invitation.features.showVenue) {
+              <section class="story-section">
+                <app-venue
+                  [event]="invitation.event"
+                  [labels]="invitation.labels"
+                  [showCalendarAction]="invitation.features.showCalendar"
+                  [showContinueAction]="false"
+                />
+              </section>
+            }
+
+            @if (invitation.features.showFamilies) {
+              <section class="story-section family-story-section">
+                <app-family-details [families]="invitation.families" [labels]="invitation.labels" />
+              </section>
+            }
+
+            <section class="story-section">
+              <app-closing-section
+                [couple]="invitation.couple"
+                [families]="invitation.families"
+                [messages]="invitation.messages"
+                [labels]="invitation.labels"
+                [showFamilies]="false"
+                [showRestartAction]="true"
+                (restartInvitation)="restart()"
+              />
+            </section>
+          </div>
+        }
+      }
+    </div>
+  </section>
+
+</main>

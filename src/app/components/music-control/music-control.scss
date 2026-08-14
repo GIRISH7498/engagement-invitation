@@ -1,0 +1,42 @@
+:host {
+  position: fixed;
+  right: max(0.9rem, env(safe-area-inset-right));
+  bottom: max(0.9rem, env(safe-area-inset-bottom));
+  z-index: 4;
+}
+
+.music-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0.62rem 0.82rem;
+  color: var(--engagement-secondary);
+  border: 1px solid var(--engagement-line-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--engagement-bg) 88%, transparent);
+  box-shadow: 0 0.7rem 1.6rem color-mix(in srgb, var(--engagement-secondary) 13%, transparent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(10px);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.music-control:hover {
+  transform: translateY(-1px);
+}
+
+.music-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-control {
+    transition: none;
+  }
+}

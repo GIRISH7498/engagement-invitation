@@ -1,0 +1,123 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+}
+
+.invitation-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100dvh;
+  padding: max(0.9rem, env(safe-area-inset-top)) 0.9rem max(1rem, env(safe-area-inset-bottom));
+}
+
+.stage-shell {
+  display: grid;
+  place-items: center;
+  min-height: calc(100dvh - 2rem);
+}
+
+.stage-shell.is-story {
+  align-items: start;
+  min-height: auto;
+}
+
+.stage-frame {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.stage-shell.is-story .stage-frame {
+  place-items: start center;
+}
+
+.stage-shell.is-transitioning .stage-frame {
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.stage-shell.is-forward.is-leaving .stage-frame {
+  animation: stage-leave-forward 240ms ease both;
+}
+
+.stage-shell.is-forward.is-entering .stage-frame {
+  animation: stage-enter-forward 460ms ease both;
+}
+
+.stage-shell.is-backward.is-leaving .stage-frame {
+  animation: stage-leave-backward 240ms ease both;
+}
+
+.stage-shell.is-backward.is-entering .stage-frame {
+  animation: stage-enter-backward 460ms ease both;
+}
+
+.story-scroll {
+  display: grid;
+  gap: clamp(1.2rem, 4.6vw, 2.55rem);
+  width: 100%;
+  padding-block: 0 clamp(2rem, 8vw, 4rem);
+}
+
+.story-section {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  scroll-margin-block-start: 1rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 42rem;
+}
+
+.family-story-section {
+  width: min(100%, 28rem);
+  margin-inline: auto;
+  padding: 0.55rem 1rem;
+}
+
+@media (min-width: 48rem) {
+  .invitation-shell {
+    padding: 2rem;
+  }
+
+  .story-scroll {
+    gap: 3rem;
+  }
+}
+
+@keyframes stage-leave-forward {
+  to {
+    opacity: 0;
+    transform: translateY(-0.55rem) scale(0.988);
+  }
+}
+
+@keyframes stage-enter-forward {
+  from {
+    opacity: 0;
+    transform: translateY(0.65rem) scale(0.988);
+  }
+}
+
+@keyframes stage-leave-backward {
+  to {
+    opacity: 0;
+    transform: translateY(0.55rem) scale(0.988);
+  }
+}
+
+@keyframes stage-enter-backward {
+  from {
+    opacity: 0;
+    transform: translateY(-0.65rem) scale(0.988);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-shell.is-forward.is-leaving .stage-frame,
+  .stage-shell.is-forward.is-entering .stage-frame,
+  .stage-shell.is-backward.is-leaving .stage-frame,
+  .stage-shell.is-backward.is-entering .stage-frame {
+    animation: none;
+  }
+}

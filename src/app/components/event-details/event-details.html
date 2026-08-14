@@ -1,0 +1,82 @@
+<section class="event-details" aria-labelledby="engagement-details-heading">
+  <article class="invitation-card">
+    <p class="eyebrow">{{ event().title }}</p>
+
+    <h1 id="engagement-details-heading" class="couple-title">
+      <span>{{ couple().groomName }} </span>
+      <span class="title-amp"> &amp; </span>
+      <span>{{ couple().brideName }}</span>
+    </h1>
+
+    <span class="gold-divider" aria-hidden="true"></span>
+
+    <p class="invitation-copy">{{ messages().invitationMessage }}</p>
+
+    <dl class="detail-list">
+      <div class="detail-row">
+        <dt>
+          <svg class="detail-icon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 3v4" />
+            <path d="M17 3v4" />
+            <path d="M4 9h16" />
+            <path d="M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+          </svg>
+          {{ labels().date }}
+        </dt>
+        <dd>
+          @if (eventDateHighlight().isStructured) {
+            <time
+              class="date-highlight"
+              [attr.datetime]="eventDateHighlight().isoDate"
+              [attr.aria-label]="eventDateHighlight().fullLabel"
+            >
+              <span class="date-month">{{ eventDateHighlight().month }}</span>
+              <span class="date-day">{{ eventDateHighlight().day }}</span>
+              <span class="date-year">{{ eventDateHighlight().year }}</span>
+              <span class="date-weekday">{{ eventDateHighlight().weekday }}</span>
+            </time>
+          } @else {
+            <span>{{ eventDateLabel() }}</span>
+          }
+        </dd>
+      </div>
+
+      <div class="detail-row">
+        <dt>
+          <svg class="detail-icon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M12 7v5l3 2" />
+            <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          {{ labels().time }}
+        </dt>
+        <dd>{{ eventTimeLabel() }}</dd>
+      </div>
+
+      @if (showVenueDetails()) {
+        <div class="detail-row venue-row">
+          <dt>
+            <svg class="detail-icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" />
+              <path d="M12 12.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z" />
+            </svg>
+            {{ labels().venue }}
+          </dt>
+          <dd>
+            <strong>{{ event().venueName }}</strong>
+            <span>{{ event().venueAddress }}</span>
+          </dd>
+        </div>
+      }
+    </dl>
+
+    @if (showFamilies()) {
+      <app-family-details [families]="families()" [labels]="labels()" />
+    }
+
+    @if (showAction()) {
+      <button class="primary-action" type="button" (click)="continueFlow.emit()">
+        {{ resolvedActionLabel() }}
+      </button>
+    }
+  </article>
+</section>

@@ -1,0 +1,151 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.venue-panel {
+  position: relative;
+  display: grid;
+  gap: 0.92rem;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+  padding: clamp(1.35rem, 4.6vw, 2.05rem) clamp(1rem, 3.8vw, 1.65rem);
+  overflow: hidden;
+  text-align: center;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--engagement-bg) 97%, white),
+      color-mix(in srgb, var(--engagement-blush) 18%, var(--engagement-bg))
+    ),
+    var(--engagement-bg);
+  border: 1px solid color-mix(in srgb, var(--engagement-gold) 26%, transparent);
+  border-radius: var(--engagement-radius-card);
+  box-shadow: var(--engagement-shadow-soft);
+  animation: stage-in 560ms ease both;
+}
+
+.venue-panel::before {
+  position: absolute;
+  inset: 0.55rem;
+  content: '';
+  pointer-events: none;
+  border: 1px solid color-mix(in srgb, var(--engagement-gold) 32%, transparent);
+  border-radius: calc(var(--engagement-radius-card) - 0.12rem);
+}
+
+.eyebrow,
+h1,
+.venue-address {
+  margin: 0;
+}
+
+.eyebrow {
+  color: var(--engagement-gold-deep);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--engagement-secondary);
+  font-family: var(--engagement-font-names);
+  font-size: clamp(2rem, 8.7vw, 3.35rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.gold-divider {
+  position: relative;
+  justify-self: center;
+  width: min(11rem, 66%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--engagement-gold), transparent);
+}
+
+.gold-divider::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.4rem;
+  aspect-ratio: 1;
+  content: '';
+  border: 1px solid var(--engagement-gold);
+  background: var(--engagement-bg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.location-mark {
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  width: 3.2rem;
+  aspect-ratio: 1;
+  color: var(--engagement-gold-deep);
+  border: 1px solid var(--engagement-line-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--engagement-bg) 74%, transparent);
+  box-shadow: 0 0.65rem 1.35rem color-mix(in srgb, var(--engagement-gold) 12%, transparent);
+}
+
+.location-mark svg {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.venue-address {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.45rem 0 0.85rem;
+  color: var(--engagement-muted);
+  font-style: normal;
+  line-height: 1.6;
+  border-block-end: 1px solid var(--engagement-line);
+}
+
+strong {
+  color: var(--engagement-secondary);
+  font-family: var(--engagement-font-display);
+  font-size: clamp(1.45rem, 6.4vw, 2rem);
+  line-height: 1.15;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.62rem;
+}
+
+.actions a,
+.actions button {
+  gap: 0.45rem;
+}
+
+.action-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.85rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .venue-panel {
+    animation: none;
+  }
+}

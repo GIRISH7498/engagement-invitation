@@ -1,0 +1,32 @@
+<section
+  class="countdown-panel"
+  [class.is-complete]="hasStarted()"
+  [class.is-invalid]="hasInvalidDate()"
+  aria-labelledby="countdown-heading"
+>
+  <p class="eyebrow">{{ labels().countdownEyebrow }}</p>
+  <h1 id="countdown-heading">{{ messages().countdownMessage }}</h1>
+  <span class="gold-divider" aria-hidden="true"></span>
+
+  @if (hasInvalidDate()) {
+    <p class="status-message">{{ labels().countdownInvalidMessage }}</p>
+    <p class="target-date">{{ targetDateLabel() }}</p>
+  } @else if (hasStarted()) {
+    <p class="complete-message">{{ messages().eventStartedMessage }}</p>
+  } @else {
+    <div
+      class="countdown-grid"
+      role="timer"
+      [attr.aria-label]="labels().countdownAriaPrefix + ' ' + targetDateLabel()"
+    >
+      @for (item of countdownItems(); track item.label) {
+        <div class="count-unit">
+          <strong>{{ item.value }}</strong>
+          <span>{{ item.label }}</span>
+        </div>
+      }
+    </div>
+
+    <p class="target-date">{{ targetDateLabel() }}</p>
+  }
+</section>

@@ -1,0 +1,38 @@
+<section class="couple-reveal" aria-labelledby="couple-reveal-heading">
+  <p class="eyebrow">{{ labels().coupleEyebrow }}</p>
+
+  <div class="portrait-frame">
+    <span class="frame-floral frame-floral-top" aria-hidden="true"></span>
+    <span class="frame-floral frame-floral-bottom" aria-hidden="true"></span>
+
+    @if (couple().couplePhoto) {
+      <img [src]="couple().couplePhoto" [alt]="photoAlt()" decoding="async" fetchpriority="high" />
+    } @else {
+      <div class="photo-placeholder" role="img" [attr.aria-label]="photoAlt()">
+        {{ monogram() }}
+      </div>
+    }
+  </div>
+
+  <h1 id="couple-reveal-heading" class="names">
+    <span class="couple-name">{{ couple().groomName }}</span>
+    <span class="ampersand-row">
+      <span class="name-rule" aria-hidden="true"></span>
+      <span class="ampersand">&amp;</span>
+      <span class="name-rule" aria-hidden="true"></span>
+    </span>
+    <span class="couple-name">{{ couple().brideName }}</span>
+    <span class="heart-mark" aria-hidden="true"></span>
+  </h1>
+
+  <p class="message">{{ messages().coupleMessage }}</p>
+
+  <button
+    class="primary-action"
+    type="button"
+    [attr.aria-label]="labels().viewInvitationAriaLabel"
+    (click)="viewInvitation.emit()"
+  >
+    {{ labels().viewInvitation }}
+  </button>
+</section>

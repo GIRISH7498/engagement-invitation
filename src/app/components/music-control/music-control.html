@@ -1,0 +1,21 @@
+@if (music.isControlVisible()) {
+  <button
+    class="music-control"
+    type="button"
+    (click)="toggleMusic()"
+    [attr.aria-pressed]="music.isAudible()"
+    [attr.aria-label]="
+      music.isAudible() ? labels().muteMusicAriaLabel : labels().playMusicAriaLabel
+    "
+    [attr.title]="music.isAudible() ? labels().muteMusicAriaLabel : labels().playMusicAriaLabel"
+  >
+    <span class="music-icon" aria-hidden="true">
+      @if (music.isAudible()) {
+        &#128266;
+      } @else {
+        &#128263;
+      }
+    </span>
+    <span>{{ music.isAudible() ? labels().musicOn : labels().musicOff }}</span>
+  </button>
+}

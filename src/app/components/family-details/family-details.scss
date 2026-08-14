@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.family-details {
+  display: grid;
+  gap: 0.38rem;
+  justify-items: center;
+  padding-top: 0.35rem;
+  color: var(--engagement-muted);
+  text-align: center;
+  animation: family-arrive 580ms ease both 120ms;
+}
+
+.family-details p {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.family-divider {
+  width: min(9rem, 56%);
+  height: 1px;
+  margin-bottom: 0.2rem;
+  background: linear-gradient(90deg, transparent, var(--engagement-gold), transparent);
+}
+
+.family-names {
+  display: grid;
+  gap: 0.1rem;
+  color: var(--engagement-text);
+  font-family: var(--engagement-font-display);
+  font-size: clamp(1.05rem, 4.8vw, 1.35rem);
+  line-height: 1.22;
+}
+
+.family-names em {
+  color: var(--engagement-gold-deep);
+  font-family: var(--engagement-font-body);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+@keyframes family-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .family-details {
+    animation: none;
+  }
+}

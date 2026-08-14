@@ -1,0 +1,67 @@
+<section class="venue-panel" aria-labelledby="venue-heading">
+  <p class="eyebrow">{{ labels().venueEyebrow }}</p>
+  <h1 id="venue-heading">{{ labels().venueHeading }}</h1>
+  <span class="gold-divider" aria-hidden="true"></span>
+
+  <div class="location-mark" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" />
+      <path d="M12 12.4a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z" />
+    </svg>
+  </div>
+
+  <address class="venue-address">
+    <strong>{{ event().venueName }}</strong>
+    <span>{{ event().venueAddress }}</span>
+  </address>
+
+  <div class="actions">
+    <a
+      class="primary-action"
+      [href]="event().googleMapsUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      [attr.aria-label]="
+        labels().getDirectionsAriaPrefix +
+        ' ' +
+        event().venueName +
+        ' ' +
+        labels().getDirectionsAriaSuffix
+      "
+    >
+      <svg class="action-icon" aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z" />
+        <path d="M12 12.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z" />
+      </svg>
+      {{ labels().getDirections }}
+    </a>
+
+    @if (showCalendarAction()) {
+      <button
+        class="secondary-action"
+        type="button"
+        [attr.aria-label]="labels().addToCalendarAriaPrefix + ' ' + event().title"
+        (click)="addToCalendar.emit()"
+      >
+        <svg class="action-icon" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M7 3v4" />
+          <path d="M17 3v4" />
+          <path d="M4 9h16" />
+          <path d="M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+        </svg>
+        {{ labels().addToCalendar }}
+      </button>
+    }
+
+    @if (showContinueAction()) {
+      <button
+        class="secondary-action"
+        type="button"
+        [attr.aria-label]="resolvedActionLabel()"
+        (click)="continueFlow.emit()"
+      >
+        {{ resolvedActionLabel() }}
+      </button>
+    }
+  </div>
+</section>

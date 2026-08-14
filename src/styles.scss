@@ -1,0 +1,127 @@
+:root {
+  --engagement-bg: #fffaf3;
+  --engagement-primary: #b76e79;
+  --engagement-secondary: #4b1f32;
+  --engagement-gold: #c8a45d;
+  --engagement-text: #4b1f32;
+  --engagement-rose: color-mix(in srgb, var(--engagement-primary) 42%, var(--engagement-bg));
+  --engagement-blush: color-mix(in srgb, var(--engagement-primary) 14%, var(--engagement-bg));
+  --engagement-muted: color-mix(in srgb, var(--engagement-text) 76%, var(--engagement-bg));
+  --engagement-gold-deep: color-mix(
+    in srgb,
+    var(--engagement-gold) 70%,
+    var(--engagement-secondary)
+  );
+  --engagement-surface: color-mix(in srgb, var(--engagement-bg) 86%, transparent);
+  --engagement-surface-soft: color-mix(in srgb, var(--engagement-bg) 72%, transparent);
+  --engagement-line: color-mix(in srgb, var(--engagement-gold) 34%, transparent);
+  --engagement-line-strong: color-mix(in srgb, var(--engagement-gold) 48%, transparent);
+  --engagement-focus: color-mix(in srgb, var(--engagement-secondary) 62%, var(--engagement-gold));
+  --engagement-shadow-soft: 0 1rem 2.6rem
+    color-mix(in srgb, var(--engagement-secondary) 10%, transparent);
+  --engagement-shadow-lifted: 0 1.15rem 3rem
+    color-mix(in srgb, var(--engagement-secondary) 12%, transparent);
+  --engagement-radius-card: 0.5rem;
+  --engagement-font-body:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --engagement-font-display: Georgia, 'Times New Roman', serif;
+  --engagement-font-names:
+    'Cormorant Garamond', 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  overflow-x: hidden;
+  color-scheme: light;
+  background: var(--engagement-bg);
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--engagement-text);
+  font-family: var(--engagement-font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.primary-action,
+.secondary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.74rem 1.16rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.primary-action {
+  color: var(--engagement-bg);
+  border: 1px solid color-mix(in srgb, var(--engagement-primary) 76%, var(--engagement-gold));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--engagement-primary) 88%, var(--engagement-gold)),
+    color-mix(in srgb, var(--engagement-secondary) 88%, var(--engagement-primary))
+  );
+  box-shadow: 0 0.72rem 1.45rem color-mix(in srgb, var(--engagement-secondary) 15%, transparent);
+}
+
+.secondary-action {
+  color: var(--engagement-secondary);
+  border: 1px solid color-mix(in srgb, var(--engagement-gold) 34%, transparent);
+  background: color-mix(in srgb, var(--engagement-bg) 82%, transparent);
+}
+
+.primary-action:hover,
+.secondary-action:hover {
+  transform: translateY(-1px);
+}
+
+.primary-action:focus-visible,
+.secondary-action:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--engagement-focus);
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 0.35rem color-mix(in srgb, var(--engagement-bg) 86%, transparent),
+    0 0.8rem 1.6rem color-mix(in srgb, var(--engagement-secondary) 18%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    transition-delay: 0ms !important;
+  }
+}

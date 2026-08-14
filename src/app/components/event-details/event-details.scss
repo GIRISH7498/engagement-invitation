@@ -1,0 +1,228 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.event-details {
+  width: 100%;
+}
+
+.invitation-card {
+  position: relative;
+  display: grid;
+  gap: 0.82rem;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+  padding: clamp(1.35rem, 4.4vw, 2.1rem) clamp(1.05rem, 4vw, 1.85rem);
+  overflow: hidden;
+  text-align: center;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--engagement-bg) 97%, white),
+      color-mix(in srgb, var(--engagement-blush) 18%, var(--engagement-bg))
+    ),
+    var(--engagement-bg);
+  border: 1px solid color-mix(in srgb, var(--engagement-gold) 26%, transparent);
+  border-radius: var(--engagement-radius-card);
+  box-shadow: var(--engagement-shadow-soft);
+  animation: card-arrive 620ms ease both;
+}
+
+.invitation-card::before {
+  position: absolute;
+  inset: 0.55rem;
+  content: '';
+  pointer-events: none;
+  border: 1px solid color-mix(in srgb, var(--engagement-gold) 32%, transparent);
+  border-radius: calc(var(--engagement-radius-card) - 0.12rem);
+}
+
+.eyebrow,
+.couple-title,
+.invitation-copy,
+.detail-list {
+  margin: 0;
+}
+
+.eyebrow {
+  color: var(--engagement-gold-deep);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.couple-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.15rem 0.55rem;
+  color: var(--engagement-secondary);
+  font-family: var(--engagement-font-names);
+  font-size: clamp(2rem, 9vw, 3.95rem);
+  font-weight: 600;
+  line-height: 0.94;
+}
+
+.couple-title span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.title-amp {
+  color: var(--engagement-gold-deep);
+  font-size: 0.72em;
+  font-style: italic;
+}
+
+.gold-divider {
+  position: relative;
+  justify-self: center;
+  width: min(12rem, 68%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--engagement-gold), transparent);
+}
+
+.gold-divider::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.42rem;
+  aspect-ratio: 1;
+  content: '';
+  border: 1px solid var(--engagement-gold);
+  background: var(--engagement-bg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.invitation-copy {
+  max-width: 23rem;
+  justify-self: center;
+  color: var(--engagement-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.detail-list {
+  display: grid;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.detail-row {
+  display: grid;
+  gap: 0.34rem;
+  justify-items: center;
+  padding: 0.82rem 0;
+  border-block-start: 1px solid var(--engagement-line);
+  animation: detail-arrive 620ms ease both;
+}
+
+.detail-row:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.detail-row:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+dt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  color: var(--engagement-gold-deep);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.detail-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+dd {
+  display: grid;
+  gap: 0.18rem;
+  margin: 0;
+  color: var(--engagement-text);
+  font-family: var(--engagement-font-display);
+  font-size: clamp(1.25rem, 5.4vw, 1.7rem);
+  line-height: 1.18;
+}
+
+.date-highlight {
+  display: grid;
+  justify-items: center;
+  min-width: min(100%, 13rem);
+  padding: 0.35rem 0.85rem 0.55rem;
+  line-height: 1;
+}
+
+.date-month,
+.date-weekday {
+  color: var(--engagement-gold-deep);
+  font-family: var(--engagement-font-body);
+  font-size: clamp(0.76rem, 3.6vw, 0.95rem);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.date-day {
+  margin-block: 0.08rem;
+  color: var(--engagement-secondary);
+  font-family: var(--engagement-font-names);
+  font-size: clamp(4rem, 18vw, 6.2rem);
+  font-weight: 700;
+  line-height: 0.78;
+  text-shadow: 0 0.45rem 1.35rem color-mix(in srgb, var(--engagement-gold) 12%, transparent);
+}
+
+.date-year {
+  color: var(--engagement-primary);
+  font-family: var(--engagement-font-names);
+  font-size: clamp(1.45rem, 6vw, 2rem);
+  font-weight: 600;
+}
+
+.venue-row dd span {
+  color: var(--engagement-muted);
+  font-family: var(--engagement-font-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.primary-action {
+  justify-self: center;
+  margin-top: 0.2rem;
+}
+
+@keyframes card-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(0.9rem) scale(0.985);
+  }
+}
+
+@keyframes detail-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(0.45rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation-card,
+  .detail-row {
+    animation: none;
+  }
+}

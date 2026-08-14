@@ -1,0 +1,31 @@
+<section class="closing-panel" aria-labelledby="closing-heading">
+  <span class="floral-corner floral-corner-top" aria-hidden="true"></span>
+  <span class="floral-corner floral-corner-bottom" aria-hidden="true"></span>
+
+  <p class="eyebrow">{{ labels().closingEyebrow }}</p>
+  <h1 id="closing-heading">{{ messages().closingMessage }}</h1>
+  <p class="supporting">{{ messages().closingSupportingMessage }}</p>
+
+  <div class="love-note">
+    <span>{{ labels().closingSignoff }}</span>
+    <strong>{{ couple().coupleDisplayName }}</strong>
+    <span class="heart" aria-hidden="true">&#10084;</span>
+  </div>
+
+  @if (showFamilies()) {
+    <p class="signature">
+      {{ families().brideFamily }} {{ labels().familySeparator }} {{ families().groomFamily }}
+    </p>
+  }
+
+  @if (showRestartAction()) {
+    <button
+      class="primary-action"
+      type="button"
+      [attr.aria-label]="labels().replayInvitationAriaLabel"
+      (click)="restartInvitation.emit()"
+    >
+      {{ labels().replayInvitation }}
+    </button>
+  }
+</section>

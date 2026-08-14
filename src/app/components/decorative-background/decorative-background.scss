@@ -1,0 +1,273 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.decorative-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--engagement-gold) 20%, transparent),
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at bottom right,
+      color-mix(in srgb, var(--engagement-rose) 24%, transparent),
+      transparent 28rem
+    ),
+    linear-gradient(
+      145deg,
+      var(--engagement-bg) 0%,
+      color-mix(in srgb, var(--engagement-blush) 64%, var(--engagement-bg)) 48%,
+      color-mix(in srgb, var(--engagement-gold) 18%, var(--engagement-bg)) 100%
+    );
+}
+
+.decorative-background::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  opacity: 0.24;
+  background-image:
+    linear-gradient(var(--engagement-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--engagement-line) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  mask-image: radial-gradient(circle at center, transparent 0, transparent 24%, black 72%);
+}
+
+.spark,
+.corner-floral,
+.heart,
+.petal,
+.particle {
+  position: absolute;
+  display: block;
+}
+
+.spark,
+.particle {
+  border-radius: 999px;
+}
+
+.corner-floral {
+  width: clamp(7rem, 28vw, 13rem);
+  aspect-ratio: 1;
+  opacity: 0.18;
+  border-block-start: 1px solid var(--engagement-line-strong);
+  border-inline-start: 1px solid var(--engagement-line-strong);
+}
+
+.corner-floral::before,
+.corner-floral::after {
+  position: absolute;
+  content: '';
+  border: 1px solid color-mix(in srgb, var(--engagement-gold) 44%, transparent);
+  border-radius: 999px 999px 0 999px;
+}
+
+.corner-floral::before {
+  top: 1.1rem;
+  left: 1.1rem;
+  width: 3rem;
+  aspect-ratio: 0.72;
+  transform: rotate(32deg);
+}
+
+.corner-floral::after {
+  top: 3.7rem;
+  left: 3.8rem;
+  width: 2.4rem;
+  aspect-ratio: 0.8;
+  border-color: color-mix(in srgb, var(--engagement-primary) 34%, transparent);
+  transform: rotate(-18deg);
+}
+
+.corner-floral-top {
+  top: 1rem;
+  left: 1rem;
+}
+
+.corner-floral-bottom {
+  right: 1rem;
+  bottom: 1rem;
+  transform: rotate(180deg);
+}
+
+.heart {
+  width: 0.52rem;
+  aspect-ratio: 1;
+  opacity: 0.18;
+  background: color-mix(in srgb, var(--engagement-primary) 64%, transparent);
+  transform: rotate(45deg);
+  animation: float-heart 16s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  content: '';
+  border-radius: 50%;
+  background: inherit;
+}
+
+.heart::before {
+  left: -50%;
+}
+
+.heart::after {
+  top: -50%;
+}
+
+.heart-one {
+  top: 30%;
+  left: 9%;
+}
+
+.heart-two {
+  top: 58%;
+  right: 10%;
+  width: 0.42rem;
+  animation-delay: -6s;
+}
+
+.heart-three {
+  bottom: 18%;
+  left: 42%;
+  width: 0.38rem;
+  animation-delay: -11s;
+}
+
+.petal {
+  width: 0.72rem;
+  height: 1.15rem;
+  opacity: 0.2;
+  border-radius: 999px 999px 999px 0;
+  background: color-mix(in srgb, var(--engagement-rose) 48%, transparent);
+  animation: petal-drift 18s ease-in-out infinite;
+}
+
+.petal-one {
+  top: 20%;
+  right: 28%;
+  transform: rotate(18deg);
+}
+
+.petal-two {
+  top: 64%;
+  left: 18%;
+  width: 0.58rem;
+  height: 0.95rem;
+  animation-delay: -7s;
+}
+
+.petal-three {
+  right: 18%;
+  bottom: 16%;
+  width: 0.62rem;
+  height: 1rem;
+  animation-delay: -12s;
+}
+
+.particle {
+  width: 0.32rem;
+  aspect-ratio: 1;
+  opacity: 0.26;
+  background: color-mix(in srgb, var(--engagement-bg) 78%, var(--engagement-gold));
+  box-shadow: 0 0 1rem color-mix(in srgb, var(--engagement-gold) 42%, transparent);
+  animation: particle-glow 7s ease-in-out infinite alternate;
+}
+
+.particle-one {
+  top: 25%;
+  left: 31%;
+}
+
+.particle-two {
+  top: 47%;
+  right: 24%;
+  animation-delay: -2s;
+}
+
+.particle-three {
+  bottom: 27%;
+  left: 24%;
+  animation-delay: -4s;
+}
+
+.spark {
+  width: 0.36rem;
+  aspect-ratio: 1;
+  opacity: 0.22;
+  background: var(--engagement-gold);
+  box-shadow: 0 0 1rem color-mix(in srgb, var(--engagement-gold) 46%, transparent);
+  animation: glow 2.8s ease-in-out infinite alternate;
+}
+
+.spark-one {
+  top: 18%;
+  left: 18%;
+}
+
+.spark-two {
+  right: 18%;
+  bottom: 22%;
+  animation-delay: -1.4s;
+}
+
+@keyframes glow {
+  to {
+    opacity: 0.34;
+    transform: scale(1.55);
+  }
+}
+
+@keyframes float-heart {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+  }
+
+  50% {
+    opacity: 0.14;
+    transform: translate3d(0.35rem, -1.4rem, 0) rotate(45deg) scale(1.12);
+  }
+}
+
+@keyframes petal-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(18deg);
+  }
+
+  50% {
+    opacity: 0.16;
+    transform: translate3d(-0.6rem, 1.25rem, 0) rotate(34deg);
+  }
+}
+
+@keyframes particle-glow {
+  to {
+    opacity: 0.16;
+    transform: translate3d(0, -0.55rem, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heart,
+  .petal {
+    display: none;
+  }
+
+  .particle,
+  .spark {
+    animation: none;
+    opacity: 0.18;
+  }
+}
