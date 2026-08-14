@@ -69,15 +69,15 @@ Replace image or audio files under `src/assets/engagement`, then update the matc
 ## WhatsApp link preview
 
 The project includes a share thumbnail at `src/assets/engagement/images/whatsapp-thumbnail.png`.
-The static Open Graph tags in `src/index.html` point to the IIS URL:
+The static Open Graph tags in `src/index.html` point to the Cloudflare Pages URL:
 
 ```text
-http://192.168.1.34:8087/assets/engagement/images/whatsapp-thumbnail.png
+https://engagement-invitation-ew4.pages.dev/assets/engagement/images/whatsapp-thumbnail.png
 ```
 
 If you publish the invitation under a different domain, IP, port, or HTTPS URL, update the `og:url`, `og:image`, `twitter:image`, and `image_src` values in `src/index.html`, then rebuild and redeploy.
 
-For WhatsApp sharing outside your local Wi-Fi network, use a public URL whenever possible. A `192.168.x.x` address is private to your local network, so some recipients and preview crawlers may not be able to fetch the thumbnail.
+WhatsApp caches link previews. If it keeps showing an old preview after deployment, change the share URL slightly, such as `https://engagement-invitation-ew4.pages.dev/?v=2`, or wait for the cache to refresh.
 
 ## Running unit tests
 
