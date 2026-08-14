@@ -89,6 +89,16 @@ export interface InvitationMusicConfig {
   filePath: string;
 }
 
+export interface InvitationShareConfig {
+  siteUrl: string;
+  siteName: string;
+  browserTitleTemplate: string;
+  titleTemplate: string;
+  descriptionTemplate: string;
+  image: string;
+  imageAltTemplate: string;
+}
+
 export interface InvitationFeaturesConfig {
   showCountdown: boolean;
   showVenue: boolean;
@@ -106,5 +116,6 @@ export interface InvitationConfig {
   families: InvitationFamiliesConfig;
   theme: InvitationThemeConfig;
   music: InvitationMusicConfig;
+  share: InvitationShareConfig;
   features: InvitationFeaturesConfig;
 }

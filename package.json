@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prebuild": "node tools/update-share-metadata.mjs",
+    "update-share-meta": "node tools/update-share-metadata.mjs",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

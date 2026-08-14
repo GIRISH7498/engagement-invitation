@@ -25,7 +25,7 @@ export const invitationConfig: InvitationConfig = {
     countdownMessage: 'Counting down to our special day',
     eventStartedMessage: 'Our beautiful journey begins today.',
     closingMessage: 'Your presence will make\nour celebration even more special.',
-    closingSupportingMessage: "We can't wait to celebrate with you ❤️",
+    closingSupportingMessage: "We can't wait to celebrate with you \u2764\uFE0F",
   },
   labels: {
     coverFamilyLine: 'Together with our families',
@@ -86,6 +86,16 @@ export const invitationConfig: InvitationConfig = {
   music: {
     enabled: false,
     filePath: 'assets/engagement/music/background-music.mp3',
+  },
+  share: {
+    siteUrl: 'https://engagement-invitation-ew4.pages.dev/',
+    siteName: 'Engagement Invitation',
+    browserTitleTemplate: '{groomName} \u2764\uFE0F {brideName} | Engagement Invitation',
+    titleTemplate: '{groomName} \u2764\uFE0F {brideName}',
+    descriptionTemplate:
+      'With love and joy, {groomName} \u2764\uFE0F {brideName} invite you to celebrate their engagement. Your blessings will make our day even more special.',
+    image: 'assets/engagement/images/whatsapp-thumbnail.png',
+    imageAltTemplate: 'Engagement invitation preview for {groomName} and {brideName}',
   },
   features: {
     showCountdown: true,

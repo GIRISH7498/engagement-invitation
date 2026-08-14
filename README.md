@@ -69,15 +69,13 @@ Replace image or audio files under `src/assets/engagement`, then update the matc
 ## WhatsApp link preview
 
 The project includes a share thumbnail at `src/assets/engagement/images/whatsapp-thumbnail.png`.
-The static Open Graph tags in `src/index.html` point to the Cloudflare Pages URL:
+WhatsApp preview text is configured in `src/app/config/invitation.config.ts` under the `share` section.
 
-```text
-https://engagement-invitation-ew4.pages.dev/assets/engagement/images/whatsapp-thumbnail.png
-```
+Supported share text tokens include `{groomName}`, `{brideName}`, `{coupleDisplayName}`, `{eventDate}`, `{eventTime}`, `{venueName}`, and `{venueAddress}`.
 
-If you publish the invitation under a different domain, IP, port, or HTTPS URL, update the `og:url`, `og:image`, `twitter:image`, and `image_src` values in `src/index.html`, then rebuild and redeploy.
+The `npm run build` command updates the static Open Graph tags in `src/index.html` before Angular builds. You can also run `npm run update-share-meta` manually after changing share content.
 
-WhatsApp caches link previews. If it keeps showing an old preview after deployment, change the share URL slightly, such as `https://engagement-invitation-ew4.pages.dev/?v=2`, or wait for the cache to refresh.
+WhatsApp always displays the domain/link row inside its preview card. The website can control the preview title, description, and thumbnail, but it cannot remove that domain row. If WhatsApp keeps showing an old preview after deployment, change the share URL slightly, such as `https://engagement-invitation-ew4.pages.dev/?v=2`, or wait for the cache to refresh.
 
 ## Running unit tests
 
