@@ -15,7 +15,7 @@ pipeline {
             steps {
                 bat '''
                     echo ================================
-                    echo Jenkins Angular CI Pipeline
+                    echo Jenkins Angular CI/CD Pipeline
                     echo ================================
 
                     echo.
@@ -56,12 +56,30 @@ pipeline {
                 bat 'npm run build'
             }
         }
+
+        stage('Verify Build Output') {
+            steps {
+                bat '''
+                    echo Angular build output:
+                    dir dist /s
+                '''
+            }
+        }
+
+        stage('Archive Artifact') {
+            steps {
+                archiveArtifacts(
+                    artifacts: 'dist/**/*',
+                    fingerprint: true
+                )
+            }
+        }
     }
 
     post {
 
         success {
-            echo 'Angular application built successfully.'
+            echo 'Angular CI pipeline completed successfully.'
         }
 
         failure {
