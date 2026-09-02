@@ -13,6 +13,8 @@ export interface InvitationEventConfig {
   venueName: string;
   venueAddress: string;
   googleMapsUrl: string;
+  calendarDurationHours?: number;
+  calendarTimeZone?: string;
 }
 
 export interface InvitationMessagesConfig {

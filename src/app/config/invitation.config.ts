@@ -17,6 +17,8 @@ export const invitationConfig: InvitationConfig = {
     venueAddress: 'Dighori, Bahadura, Maharashtra 440034',
     googleMapsUrl:
       'https://www.google.com/maps/place/Padole+Lawn/@21.1055174,79.140073,17z/data=!4m14!1m7!3m6!1s0x3bd4b9d4ad5bad93:0xbb50ad219b350c3f!2sPadole+Lawn!8m2!3d21.1055124!4d79.1426479!16s%2Fg%2F11hdrx8pst!3m5!1s0x3bd4b9d4ad5bad93:0xbb50ad219b350c3f!8m2!3d21.1055124!4d79.1426479!16s%2Fg%2F11hdrx8pst?entry=ttu&g_ep=EgoyMDI2MDgzMC4wIKXMDSoASAFQAw%3D%3D',
+    calendarDurationHours: 3,
+    calendarTimeZone: 'Asia/Kolkata',
   },
   messages: {
     welcomeMessage: 'With joy in our hearts, we invite you to open this engagement invitation.',

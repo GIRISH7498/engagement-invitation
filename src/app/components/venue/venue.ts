@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 
 import { InvitationEventConfig, InvitationLabelsConfig } from '../../models/invitation.model';
+import { CalendarService } from '../../services/calendar.service';
 
 @Component({
   selector: 'app-venue',
@@ -10,6 +11,8 @@ import { InvitationEventConfig, InvitationLabelsConfig } from '../../models/invi
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VenueComponent {
+  private readonly calendarService = inject(CalendarService);
+
   readonly event = input.required<InvitationEventConfig>();
   readonly labels = input.required<InvitationLabelsConfig>();
   readonly actionLabel = input('');
@@ -21,4 +24,5 @@ export class VenueComponent {
   readonly resolvedActionLabel = computed(
     () => this.actionLabel().trim() || this.labels().continue,
   );
+  readonly calendarUrl = computed(() => this.calendarService.createGoogleCalendarUrl(this.event()));
 }

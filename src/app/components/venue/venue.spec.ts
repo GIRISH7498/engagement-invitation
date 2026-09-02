@@ -32,7 +32,7 @@ describe('VenueComponent', () => {
     expect(directionsLink?.rel).toContain('noopener');
   });
 
-  it('emits calendar and continue actions', () => {
+  it('opens a configured calendar link and emits continue actions', () => {
     const fixture = TestBed.createComponent(VenueComponent);
     fixture.componentRef.setInput('event', {
       title: 'Engagement Ceremony',
@@ -50,11 +50,16 @@ describe('VenueComponent', () => {
     fixture.componentInstance.continueFlow.subscribe(continueSpy);
     fixture.detectChanges();
 
+    const calendarLink = fixture.nativeElement.querySelector(
+      'a.secondary-action',
+    ) as HTMLAnchorElement | null;
     const buttons = Array.from(
       fixture.nativeElement.querySelectorAll('button'),
     ) as HTMLButtonElement[];
 
-    buttons.find((button) => button.textContent?.includes('Add to Calendar'))?.click();
+    expect(calendarLink?.href).toContain('https://calendar.google.com/calendar/render');
+
+    calendarLink?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
     buttons.find((button) => button.textContent?.includes('Continue'))?.click();
 
     expect(calendarSpy).toHaveBeenCalledOnce();
