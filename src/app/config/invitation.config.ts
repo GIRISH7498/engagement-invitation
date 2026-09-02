@@ -3,19 +3,20 @@ import { InvitationConfig } from '../models/invitation.model';
 // Replace only this file when personalizing the invitation.
 export const invitationConfig: InvitationConfig = {
   couple: {
-    groomName: 'Groom Name',
-    brideName: 'Bride Name',
-    coupleDisplayName: 'Groom Name & Bride Name',
+    groomName: 'Girish',
+    brideName: 'Mayuri',
+    coupleDisplayName: 'Girish & Mayuri',
     couplePhoto: 'assets/engagement/images/couple-main.webp',
     secondaryPhoto: 'assets/engagement/images/couple-secondary.webp',
   },
   event: {
     title: 'WE ARE GETTING ENGAGED',
-    date: '20 December 2026',
-    time: '6:30 PM onwards',
+    date: '12 November 2026',
+    time: '12 PM onwards',
     venueName: 'Engagement Venue',
     venueAddress: 'City, India',
-    googleMapsUrl: 'https://maps.google.com',
+    googleMapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=21.10572257223086,79.14265862410542',
   },
   messages: {
     welcomeMessage: 'With joy in our hearts, we invite you to open this engagement invitation.',
@@ -30,7 +31,7 @@ export const invitationConfig: InvitationConfig = {
   labels: {
     coverFamilyLine: 'Together with our families',
     coverTitle: "You're Invited",
-    coverSealFallback: 'G & B',
+    coverSealFallback: 'G & M',
     openInvitation: 'Open Invitation',
     openingInvitation: 'Opening...',
     openInvitationAriaLabel: 'Open invitation',
@@ -74,8 +75,8 @@ export const invitationConfig: InvitationConfig = {
     progressSeparator: 'of',
   },
   families: {
-    groomFamily: 'Groom Family',
-    brideFamily: 'Bride Family',
+    groomFamily: 'Giradkar Family',
+    brideFamily: 'Mathurkar Family',
   },
   theme: {
     // Change only this value to switch the complete invitation theme.

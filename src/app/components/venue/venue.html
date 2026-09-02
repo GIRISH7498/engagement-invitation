@@ -11,8 +11,22 @@
   </div>
 
   <address class="venue-address">
-    <strong>{{ event().venueName }}</strong>
-    <span>{{ event().venueAddress }}</span>
+    <a
+      class="venue-map-link"
+      [href]="event().googleMapsUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      [attr.aria-label]="
+        labels().getDirectionsAriaPrefix +
+        ' ' +
+        event().venueName +
+        ' ' +
+        labels().getDirectionsAriaSuffix
+      "
+    >
+      <strong>{{ event().venueName }}</strong>
+      <span>{{ event().venueAddress }}</span>
+    </a>
   </address>
 
   <div class="actions">

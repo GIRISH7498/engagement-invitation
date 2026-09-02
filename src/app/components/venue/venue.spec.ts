@@ -18,10 +18,14 @@ describe('VenueComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
+    const venueLink = compiled.querySelector<HTMLAnchorElement>('.venue-map-link');
     const directionsLink = compiled.querySelector<HTMLAnchorElement>('a.primary-action');
 
     expect(compiled.textContent).toContain('Engagement Venue');
     expect(compiled.textContent).toContain('City, India');
+    expect(venueLink?.href).toBe('https://maps.google.com/?q=Engagement+Venue');
+    expect(venueLink?.target).toBe('_blank');
+    expect(venueLink?.rel).toContain('noopener');
     expect(directionsLink?.textContent).toContain('Get Directions');
     expect(directionsLink?.href).toBe('https://maps.google.com/?q=Engagement+Venue');
     expect(directionsLink?.target).toBe('_blank');

@@ -103,13 +103,27 @@ svg {
 }
 
 .venue-address {
+  margin: 0;
+  padding: 0.45rem 0 0.85rem;
+  font-style: normal;
+  border-block-end: 1px solid var(--engagement-line);
+}
+
+.venue-map-link {
   display: grid;
   gap: 0.45rem;
-  padding: 0.45rem 0 0.85rem;
   color: var(--engagement-muted);
-  font-style: normal;
   line-height: 1.6;
-  border-block-end: 1px solid var(--engagement-line);
+  text-decoration: none;
+  border-radius: 0.35rem;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.venue-map-link:hover {
+  color: var(--engagement-secondary);
+  transform: translateY(-1px);
 }
 
 strong {
