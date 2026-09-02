@@ -16,7 +16,7 @@ export const invitationConfig: InvitationConfig = {
     venueName: 'Engagement Venue',
     venueAddress: 'City, India',
     googleMapsUrl:
-      'https://www.google.com/maps/search/?api=1&query=21.10572257223086,79.14265862410542',
+      'https://www.google.com/maps/place/Padole+Lawn/@21.1055174,79.140073,17z/data=!4m14!1m7!3m6!1s0x3bd4b9d4ad5bad93:0xbb50ad219b350c3f!2sPadole+Lawn!8m2!3d21.1055124!4d79.1426479!16s%2Fg%2F11hdrx8pst!3m5!1s0x3bd4b9d4ad5bad93:0xbb50ad219b350c3f!8m2!3d21.1055124!4d79.1426479!16s%2Fg%2F11hdrx8pst?entry=ttu&g_ep=EgoyMDI2MDgzMC4wIKXMDSoASAFQAw%3D%3D',
   },
   messages: {
     welcomeMessage: 'With joy in our hearts, we invite you to open this engagement invitation.',
@@ -31,7 +31,7 @@ export const invitationConfig: InvitationConfig = {
   labels: {
     coverFamilyLine: 'Together with our families',
     coverTitle: "You're Invited",
-    coverSealFallback: 'G & M',
+    coverSealFallback: 'Girish & Mayuri',
     openInvitation: 'Open Invitation',
     openingInvitation: 'Opening...',
     openInvitationAriaLabel: 'Open invitation',
