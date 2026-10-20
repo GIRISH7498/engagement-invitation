@@ -120,8 +120,9 @@ export const invitationConfig: InvitationConfig = {
     },
   },
   music: {
-    enabled: false,
-    filePath: 'assets/engagement/music/background-music.mp3',
+    enabled: true,
+    filePath:
+      'assets/engagement/music/Sachet_Tandon_-_Ghantalele.com_-_Kudmayi_Ghantalele.com_(mp3.pm).mp3',
   },
   share: {
     siteUrl: 'https://engagement-invitation-ew4.pages.dev/',
@@ -137,7 +138,7 @@ export const invitationConfig: InvitationConfig = {
     showCountdown: true,
     showVenue: true,
     showFamilies: true,
-    showMusic: false,
+    showMusic: true,
     showGallery: false,
     showCalendar: true,
   },
