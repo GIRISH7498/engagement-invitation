@@ -8,13 +8,13 @@ import { InvitationMusicConfig } from '../models/invitation.model';
 export class MusicService {
   private readonly filePath = signal('');
   private readonly isConfigured = signal(false);
-  private readonly hasUserActivated = signal(false);
+  private readonly hasPlaybackRequested = signal(false);
   private audio: HTMLAudioElement | null = null;
   private audioFilePath = '';
 
   readonly isPlaying = signal(false);
   readonly isMuted = signal(false);
-  readonly isControlVisible = computed(() => this.isConfigured() && this.hasUserActivated());
+  readonly isControlVisible = computed(() => this.isConfigured() && this.hasPlaybackRequested());
   readonly isAudible = computed(() => this.isPlaying() && !this.isMuted());
 
   configure(config: InvitationMusicConfig, featureEnabled: boolean): void {
@@ -29,19 +29,30 @@ export class MusicService {
     this.isConfigured.set(nextIsConfigured);
 
     if (!nextIsConfigured) {
-      this.hasUserActivated.set(false);
+      this.hasPlaybackRequested.set(false);
       this.stopAudio();
+    }
+  }
+
+  startOnLoad(config: InvitationMusicConfig, featureEnabled: boolean): void {
+    this.configure(config, featureEnabled);
+
+    if (config.autoplay) {
+      this.requestPlayback();
     }
   }
 
   startFromUserGesture(config: InvitationMusicConfig, featureEnabled: boolean): void {
     this.configure(config, featureEnabled);
+    this.requestPlayback();
+  }
 
+  private requestPlayback(): void {
     if (!this.isConfigured()) {
       return;
     }
 
-    this.hasUserActivated.set(true);
+    this.hasPlaybackRequested.set(true);
     this.playCurrentAudio();
   }
 

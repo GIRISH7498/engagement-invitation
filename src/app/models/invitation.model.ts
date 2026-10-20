@@ -95,6 +95,7 @@ export interface InvitationThemeConfig extends InvitationThemePaletteConfig {
 export interface InvitationMusicConfig {
   enabled: boolean;
   filePath: string;
+  autoplay?: boolean;
 }
 
 export interface InvitationShareConfig {

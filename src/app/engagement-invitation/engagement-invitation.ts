@@ -59,7 +59,7 @@ export class EngagementInvitationComponent implements OnDestroy {
   readonly isStoryStage = computed(() => this.currentStage() === 'invitationStory');
 
   constructor() {
-    this.musicService.configure(this.invitation.music, this.invitation.features.showMusic);
+    this.musicService.startOnLoad(this.invitation.music, this.invitation.features.showMusic);
   }
 
   startMusic(): void {

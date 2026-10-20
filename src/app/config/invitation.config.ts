@@ -121,6 +121,7 @@ export const invitationConfig: InvitationConfig = {
   },
   music: {
     enabled: true,
+    autoplay: true,
     filePath: 'assets/engagement/music/Kudmayi (Film Version)_spotdown.org.m4a',
   },
   share: {

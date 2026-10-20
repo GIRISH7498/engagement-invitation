@@ -44,13 +44,39 @@ describe('MusicService', () => {
     vi.unstubAllGlobals();
   });
 
-  it('does not create audio until a user gesture requests playback', () => {
+  it('does not create audio on load when autoplay is disabled', () => {
     const service = TestBed.inject(MusicService);
 
-    service.configure(musicConfig, true);
+    service.startOnLoad(musicConfig, true);
 
     expect(audioInstances).toHaveLength(0);
     expect(service.isControlVisible()).toBe(false);
+  });
+
+  it('starts looping audio on load when autoplay is enabled', async () => {
+    const service = TestBed.inject(MusicService);
+    service.startOnLoad({ ...musicConfig, autoplay: true }, true);
+    await Promise.resolve();
+    expect(audioInstances).toHaveLength(1);
+    expect(audioInstances[0].loop).toBe(true);
+    expect(service.isAudible()).toBe(true);
+  });
+
+  it('retries blocked autoplay on a tap without replacing or restarting the track', async () => {
+    const service = TestBed.inject(MusicService);
+    shouldRejectPlayback = true;
+    service.startOnLoad({ ...musicConfig, autoplay: true }, true);
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(service.isPlaying()).toBe(false);
+    expect(service.isControlVisible()).toBe(true);
+    shouldRejectPlayback = false;
+    audioInstances[0].currentTime = 12;
+    service.startFromUserGesture(musicConfig, true);
+    await Promise.resolve();
+    expect(audioInstances).toHaveLength(1);
+    expect(audioInstances[0].currentTime).toBe(12);
+    expect(service.isAudible()).toBe(true);
   });
 
   it('starts music after a user gesture and toggles mute state', async () => {
