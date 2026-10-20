@@ -121,8 +121,7 @@ export const invitationConfig: InvitationConfig = {
   },
   music: {
     enabled: true,
-    filePath:
-      'assets/engagement/music/Sachet_Tandon_-_Ghantalele.com_-_Kudmayi_Ghantalele.com_(mp3.pm).mp3',
+    filePath: 'assets/engagement/music/Kudmayi (Film Version)_spotdown.org.m4a',
   },
   share: {
     siteUrl: 'https://engagement-invitation-ew4.pages.dev/',
