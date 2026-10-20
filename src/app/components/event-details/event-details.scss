@@ -7,13 +7,17 @@
   width: 100%;
 }
 
+.botanical-corner {
+  width: min(38%, 8rem);
+}
+
 .invitation-card {
   position: relative;
   display: grid;
-  gap: 0.82rem;
+  gap: 1.35rem;
   width: min(100%, 30rem);
   margin-inline: auto;
-  padding: clamp(1.35rem, 4.4vw, 2.1rem) clamp(1.05rem, 4vw, 1.85rem);
+  padding: 4.5rem 1.5rem 3rem;
   overflow: hidden;
   text-align: center;
   background:
@@ -61,9 +65,9 @@
   gap: 0.15rem 0.55rem;
   color: var(--engagement-secondary);
   font-family: var(--engagement-font-names);
-  font-size: clamp(2rem, 9vw, 3.95rem);
+  font-size: 3rem;
   font-weight: 600;
-  line-height: 0.94;
+  line-height: 1.1;
 }
 
 .couple-title span {
@@ -116,7 +120,7 @@
   display: grid;
   gap: 0.34rem;
   justify-items: center;
-  padding: 0.82rem 0;
+  padding: 1.15rem 0;
   border-block-start: 1px solid var(--engagement-line);
   animation: detail-arrive 620ms ease both;
 }
@@ -178,12 +182,12 @@ dd {
 }
 
 .date-day {
-  margin-block: 0.08rem;
+  margin-block: 0.5rem;
   color: var(--engagement-secondary);
   font-family: var(--engagement-font-names);
-  font-size: clamp(4rem, 18vw, 6.2rem);
+  font-size: 5.75rem;
   font-weight: 700;
-  line-height: 0.78;
+  line-height: 1;
   text-shadow: 0 0.45rem 1.35rem color-mix(in srgb, var(--engagement-gold) 12%, transparent);
 }
 

@@ -2,8 +2,8 @@
   <p class="eyebrow">{{ labels().coupleEyebrow }}</p>
 
   <div class="portrait-frame">
-    <span class="frame-floral frame-floral-top" aria-hidden="true"></span>
-    <span class="frame-floral frame-floral-bottom" aria-hidden="true"></span>
+    <span class="botanical-corner" aria-hidden="true"></span>
+    <span class="botanical-corner botanical-corner-bottom" aria-hidden="true"></span>
 
     @if (couple().couplePhoto) {
       <img [src]="couple().couplePhoto" [alt]="photoAlt()" decoding="async" fetchpriority="high" />

@@ -31,12 +31,13 @@
   position: absolute;
   inset: 0;
   content: '';
-  opacity: 0.24;
-  background-image:
-    linear-gradient(var(--engagement-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--engagement-line) 1px, transparent 1px);
-  background-size: 5rem 5rem;
-  mask-image: radial-gradient(circle at center, transparent 0, transparent 24%, black 72%);
+  opacity: 0.16;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    var(--engagement-line) 4px
+  );
 }
 
 .spark,

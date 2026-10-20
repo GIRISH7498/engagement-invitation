@@ -74,7 +74,9 @@ button:disabled {
   padding: 0.74rem 1.16rem;
   border-radius: 999px;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
+  max-width: 100%;
+  text-align: center;
   text-decoration: none;
   transition:
     transform 180ms ease,
@@ -85,11 +87,7 @@ button:disabled {
 .primary-action {
   color: var(--engagement-bg);
   border: 1px solid color-mix(in srgb, var(--engagement-primary) 76%, var(--engagement-gold));
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--engagement-primary) 88%, var(--engagement-gold)),
-    color-mix(in srgb, var(--engagement-secondary) 88%, var(--engagement-primary))
-  );
+  background: var(--engagement-secondary);
   box-shadow: 0 0.72rem 1.45rem color-mix(in srgb, var(--engagement-secondary) 15%, transparent);
 }
 
@@ -97,6 +95,21 @@ button:disabled {
   color: var(--engagement-secondary);
   border: 1px solid color-mix(in srgb, var(--engagement-gold) 34%, transparent);
   background: color-mix(in srgb, var(--engagement-bg) 82%, transparent);
+}
+
+.botanical-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(42%, 10rem);
+  aspect-ratio: 1;
+  background: url('/assets/engagement/decorative/rose-corner.webp') top left / contain no-repeat;
+  pointer-events: none;
+}
+
+.botanical-corner-bottom {
+  inset: auto 0 0 auto;
+  transform: rotate(180deg);
 }
 
 .primary-action:hover,

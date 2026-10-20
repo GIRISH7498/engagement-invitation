@@ -12,16 +12,7 @@
   padding: clamp(1.35rem, 4.6vw, 2.05rem) clamp(1rem, 3.8vw, 1.65rem);
   overflow: hidden;
   text-align: center;
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--engagement-bg) 97%, white),
-      color-mix(in srgb, var(--engagement-blush) 18%, var(--engagement-bg))
-    ),
-    var(--engagement-bg);
-  border: 1px solid color-mix(in srgb, var(--engagement-gold) 26%, transparent);
-  border-radius: var(--engagement-radius-card);
-  box-shadow: var(--engagement-shadow-soft);
+  background: transparent;
   animation: stage-in 560ms ease both;
 }
 
@@ -30,8 +21,7 @@
   inset: 0.55rem;
   content: '';
   pointer-events: none;
-  border: 1px solid color-mix(in srgb, var(--engagement-gold) 32%, transparent);
-  border-radius: calc(var(--engagement-radius-card) - 0.12rem);
+  border-block: 1px solid var(--engagement-line);
 }
 
 .eyebrow,
@@ -53,9 +43,9 @@ h1,
 h1 {
   color: var(--engagement-secondary);
   font-family: var(--engagement-font-names);
-  font-size: clamp(1.9rem, 8.4vw, 3.15rem);
+  font-size: 2.25rem;
   font-weight: 600;
-  line-height: 0.98;
+  line-height: 1.15;
 }
 
 .gold-divider {
@@ -86,7 +76,7 @@ h1 {
 
 .countdown-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.55rem;
 }
 
@@ -97,9 +87,12 @@ h1 {
   place-items: center;
   padding: 0.7rem 0.42rem;
   color: var(--engagement-text);
-  border-block: 1px solid var(--engagement-line);
-  background: color-mix(in srgb, var(--engagement-bg) 52%, transparent);
+  border-inline-end: 1px solid var(--engagement-line);
   animation: count-arrive 620ms ease both;
+}
+
+.count-unit:last-child {
+  border-inline-end: 0;
 }
 
 .count-unit:nth-child(2) {
@@ -117,15 +110,16 @@ h1 {
 .count-unit strong {
   color: var(--engagement-secondary);
   font-family: var(--engagement-font-names);
-  font-size: clamp(2.1rem, 10.5vw, 3.3rem);
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
   line-height: 0.9;
 }
 
 .count-unit span {
   color: var(--engagement-gold-deep);
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 

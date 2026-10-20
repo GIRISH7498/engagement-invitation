@@ -5,11 +5,12 @@
   aria-labelledby="invitation-cover-heading"
   aria-describedby="invitation-cover-message"
 >
-  <span class="floral-corner floral-corner-top" aria-hidden="true"></span>
-  <span class="floral-corner floral-corner-bottom" aria-hidden="true"></span>
+  <span class="botanical-corner" aria-hidden="true"></span>
+  <span class="botanical-corner botanical-corner-bottom" aria-hidden="true"></span>
 
   <p class="family-line">{{ labels().coverFamilyLine }}</p>
   <h1 id="invitation-cover-heading">{{ labels().coverTitle }}</h1>
+  <p class="cover-names">{{ couple().coupleDisplayName }}</p>
   <p id="invitation-cover-message" class="message">{{ messages().welcomeMessage }}</p>
 
   <div class="envelope-wrap" aria-hidden="true">

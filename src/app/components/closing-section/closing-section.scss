@@ -6,10 +6,10 @@
 .closing-panel {
   position: relative;
   display: grid;
-  gap: 0.9rem;
+  gap: 1.25rem;
   width: min(100%, 30rem);
   margin-inline: auto;
-  padding: clamp(1.5rem, 5vw, 2.35rem) clamp(1.05rem, 4.5vw, 1.85rem);
+  padding: 4.5rem 1.5rem;
   overflow: hidden;
   text-align: center;
   background:
@@ -34,43 +34,6 @@
   border-radius: calc(var(--engagement-radius-card) - 0.12rem);
 }
 
-.floral-corner {
-  position: absolute;
-  width: 5rem;
-  aspect-ratio: 1;
-  opacity: 0.28;
-  pointer-events: none;
-  border: 1px solid var(--engagement-line-strong);
-  border-radius: 999px 0;
-}
-
-.floral-corner::before,
-.floral-corner::after {
-  position: absolute;
-  content: '';
-  border: 1px solid var(--engagement-line);
-  border-radius: 999px 0;
-}
-
-.floral-corner::before {
-  inset: 1rem 0.7rem 0.7rem 1rem;
-}
-
-.floral-corner::after {
-  inset: 2rem 1.45rem 1.45rem 2rem;
-}
-
-.floral-corner-top {
-  top: 0.75rem;
-  left: 0.75rem;
-}
-
-.floral-corner-bottom {
-  right: 0.75rem;
-  bottom: 0.75rem;
-  transform: rotate(180deg);
-}
-
 .eyebrow,
 h1,
 .supporting,
@@ -90,9 +53,9 @@ h1,
 h1 {
   color: var(--engagement-secondary);
   font-family: var(--engagement-font-names);
-  font-size: clamp(2.05rem, 8.8vw, 3.45rem);
+  font-size: 2.5rem;
   font-weight: 600;
-  line-height: 1.02;
+  line-height: 1.15;
   overflow-wrap: anywhere;
   text-wrap: balance;
   white-space: pre-line;
