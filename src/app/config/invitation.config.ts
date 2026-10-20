@@ -6,15 +6,15 @@ export const invitationConfig: InvitationConfig = {
     groomName: 'Girish',
     brideName: 'Mayuri',
     coupleDisplayName: 'Girish & Mayuri',
-    couplePhoto: 'assets/engagement/images/couple-main.webp',
+    couplePhoto: 'assets/engagement/images/couple-engagement.png',
     secondaryPhoto: 'assets/engagement/images/couple-secondary.webp',
   },
   event: {
     title: 'WE ARE GETTING ENGAGED',
     date: '12 November 2026',
-    time: '12 PM onwards',
+    time: '01:30 PM onwards',
     venueName: 'Padole Lawn',
-    venueAddress: 'Dighori, Bahadura, Maharashtra 440034',
+    venueAddress: 'Dighori Naka, Nagpur - 440034',
     googleMapsUrl:
       'https://www.google.com/maps/place/Padole+Lawn/@21.1055174,79.140073,17z/data=!4m14!1m7!3m6!1s0x3bd4b9d4ad5bad93:0xbb50ad219b350c3f!2sPadole+Lawn!8m2!3d21.1055124!4d79.1426479!16s%2Fg%2F11hdrx8pst!3m5!1s0x3bd4b9d4ad5bad93:0xbb50ad219b350c3f!8m2!3d21.1055124!4d79.1426479!16s%2Fg%2F11hdrx8pst?entry=ttu&g_ep=EgoyMDI2MDgzMC4wIKXMDSoASAFQAw%3D%3D',
     calendarDurationHours: 3,
