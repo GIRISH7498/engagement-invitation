@@ -61,6 +61,27 @@ button {
   cursor: pointer;
 }
 
+main :where(h1, p, dd, dt, strong, a, button) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+main
+  :where(
+    section,
+    article,
+    app-invitation-cover,
+    app-couple-reveal,
+    app-event-details,
+    app-countdown,
+    app-venue,
+    app-family-details,
+    app-closing-section
+  ) {
+  min-width: 0;
+  max-width: 100%;
+}
+
 button:disabled {
   cursor: default;
 }

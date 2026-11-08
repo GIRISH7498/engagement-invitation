@@ -8,13 +8,16 @@
   z-index: 1;
   display: grid;
   min-height: 100dvh;
-  padding: max(0.9rem, env(safe-area-inset-top)) 0.9rem max(1rem, env(safe-area-inset-bottom));
+  padding: max(0.9rem, env(safe-area-inset-top)) max(0.9rem, env(safe-area-inset-right))
+    max(5rem, calc(env(safe-area-inset-bottom) + 4rem)) max(0.9rem, env(safe-area-inset-left));
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .stage-shell {
   display: grid;
   place-items: center;
-  min-height: calc(100dvh - 2rem);
+  min-height: calc(100dvh - 6rem);
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .stage-shell.is-story {
@@ -26,6 +29,8 @@
   display: grid;
   place-items: center;
   width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .stage-shell.is-story .stage-frame {
@@ -77,7 +82,8 @@
 
 @media (min-width: 48rem) {
   .invitation-shell {
-    padding: 2rem;
+    padding-top: max(2rem, env(safe-area-inset-top));
+    padding-inline: max(2rem, env(safe-area-inset-left)) max(2rem, env(safe-area-inset-right));
   }
 
   .story-scroll {

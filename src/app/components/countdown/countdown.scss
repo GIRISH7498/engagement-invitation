@@ -76,12 +76,13 @@ h1 {
 
 .countdown-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.55rem;
 }
 
 .count-unit {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.18rem;
   min-height: 5.6rem;
   place-items: center;
@@ -91,7 +92,7 @@ h1 {
   animation: count-arrive 620ms ease both;
 }
 
-.count-unit:last-child {
+.count-unit:nth-child(even) {
   border-inline-end: 0;
 }
 
@@ -116,6 +117,8 @@ h1 {
 }
 
 .count-unit span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
   color: var(--engagement-gold-deep);
   font-size: 0.6rem;
   font-weight: 700;
@@ -153,6 +156,10 @@ h1 {
 @media (min-width: 30rem) {
   .countdown-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .count-unit:nth-child(2) {
+    border-inline-end: 1px solid var(--engagement-line);
   }
 }
 

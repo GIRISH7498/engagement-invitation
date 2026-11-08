@@ -28,7 +28,7 @@
 
 .portrait-frame {
   position: relative;
-  width: min(70vw, 16.75rem);
+  width: min(calc(100% - 2rem), 16.75rem);
   aspect-ratio: 0.925;
   padding: 0.5rem;
   border: 1px solid color-mix(in srgb, var(--engagement-gold) 62%, transparent);
@@ -98,7 +98,7 @@ img {
 .ampersand-row {
   display: grid;
   align-items: center;
-  grid-template-columns: minmax(2.75rem, 1fr) auto minmax(2.75rem, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 0.62rem;
   width: min(74%, 14rem);
   margin-block: 0.12rem 0.04rem;
@@ -220,6 +220,20 @@ img {
   50% {
     opacity: 0.32;
     transform: rotate(45deg) scale(1.16);
+  }
+}
+
+@media (max-height: 42rem) {
+  .couple-reveal {
+    gap: 0.8rem;
+  }
+
+  .portrait-frame {
+    max-width: 12rem;
+  }
+
+  .couple-name {
+    font-size: 2.5rem;
   }
 }
 
